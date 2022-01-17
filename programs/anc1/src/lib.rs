@@ -1,6 +1,8 @@
 use anchor_lang::prelude::*;
 use std::str::from_utf8;
 
+// IMPORTANT (PROGRAM_ID): CHANGE THIS AFTER FIRST BUILD/DEPLOY
+// SEE README... 
 declare_id!("6r2DZtptqFkwS1UXPDFioKb8itkaEf6DH4e9pWJdYrLc");
 
 #[program]
@@ -10,6 +12,7 @@ pub mod anc1 {
         // ctx.accounts.authority.
         let blog_acct = &mut ctx.accounts.blog_account;
         blog_acct.authority = *ctx.accounts.authority.key;
+        msg!("blog acct key {}!", blog_acct.key());
         Ok(())
     }
 
@@ -25,10 +28,11 @@ pub mod anc1 {
         })?;
         // msg!() is a Solana macro that prints string slices to the program log, 
         // which we can grab from the transaction block data
-        msg!(memo);
+        msg!("Make Post Memo: {}", memo);
         let blog_acct = &mut ctx.accounts.blog_account;
         blog_acct.latest_post = new_post; // save the latest post in the account.
         // past posts will be saved in transaction logs
+        msg!("Make Post Authority: {}", blog_acct.authority);
         Ok(())
     }
 }

@@ -1,5 +1,5 @@
 
-![sic semper tyrannis](./spacescape_8.png)
+![sic_semper_tyrannis](./spacescape_8.png "Sic Semper Tyrannis")
 
 # Overview:
 
@@ -7,7 +7,10 @@ First attempt at solana blockchain development using the very new __anchor__ fra
 
 Anchor handles data serialization/de-serialization between the rust backend and frontend of your choice (probably javascript).
 
-Project file overview. 
+__Program can be found on solchain explorer here:__
+[explorer.solana.com/address/6r2DZtptqFkwS1UXPDFioKb8itkaEf6DH4e9pWJdYrLc?cluster=devnet](https://explorer.solana.com/address/6r2DZtptqFkwS1UXPDFioKb8itkaEf6DH4e9pWJdYrLc?cluster=devnet "Look at this program on the blockchain")
+
+__Project file overview:__
 ```
 Anchor.toml: Anchor configuration file.
 Cargo.toml: Rust workspace configuration file.
@@ -67,9 +70,7 @@ Set appropriate cluster `solana config set --url http://localhost:8899`
 ~/Anchor.toml
 ```ini
 [provider]
-cluster = "devnet"
-or
-cluster = "localhost"
+cluster = "devnet or localhost or etc.."
 wallet = "/home/hauwei/.config/solana/id.json"
 ```
 
@@ -77,8 +78,24 @@ wallet = "/home/hauwei/.config/solana/id.json"
 # Dependencies:
 
 __Frontend:__
+
+~/node_modules/app
 ```bash
 yarn add @project-serum/anchor
 ```
+
+__Backend:__ (root dir node modules)
+
+~/node_modules
+```bash
+yarn add cross-spawn
+yarn add fs
+```
+
+
+
+
+
+
 
 
